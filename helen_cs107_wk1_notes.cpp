@@ -2,6 +2,13 @@
 Notes owner: Helen Deng, yiman@stanford.edu
 Winter 2023, Stanford CS107 Week 1 notes for self-study only. 
 These notes reflect more of personal interest than syllabus material.
+
+    1. how are integers represented in computers
+    2. boolean algebra
+    3. data types & sizes
+    4. a basic c program
+    5. Unix commands
+    6. emacs editor
 */
 
 #include <bits/stdc++.h>
