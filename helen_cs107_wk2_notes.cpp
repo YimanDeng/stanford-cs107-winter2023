@@ -18,7 +18,7 @@ using namespace std
           each breakpoint is sequentially assigned a number, to remove: delete 2
           to see info about break point: info break
           conditional break: [BREAKPOINT] if [CONDITION]
-          once stopped, can c continue.
+          once stopped, can c continue, n for next, or s for step
       - use the backtrace command to get a full stack trace of the program's execution when the error occurred
       - info
           info args prints out the arguments (parameters) to the current function you're in
