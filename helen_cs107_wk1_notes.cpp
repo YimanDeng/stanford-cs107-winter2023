@@ -105,7 +105,7 @@ string decimal_to_hex(int dec) {
 }
 
 /*
-2. boolean algebra
+2. boolean algebra / bitwise manipulation
     - In c, there is no boolean, only ints, any number other than 0 is true;
         AND &, OR |, XOR ^, NOT ~
         << left shift (same effect as appending 00 in binary), >> right shift;
@@ -130,6 +130,12 @@ int all_ones = ~0; // makes an integer with all 1s
 #define turnOnLastZero(S) ((S) | (S+1))
 #define turnOffLastConsecutiveBits(S) ((S) & (S+1))
 #define turnOnLastConsecutiveZeroes(S) ((S) | (S-1))
+
+1 << x // 2 to the power x
+~x + 1 // -x, arithmetic negation
+x >> 31 // -1 if x is negative, 0 otherwise
+x &= (x - 1) // clears lowest "on" bit in x
+(x ^ y) < 0 // true if x and y have opposite signs
 
 /*
 3. data types & sizes
