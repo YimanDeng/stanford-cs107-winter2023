@@ -26,7 +26,15 @@ using namespace std;
         Works well for computers, all nums are unique, no 2 zeros, can add and subtract;
         All 1s is either the MAX in unsigned int, or -1 in signed int.
         Biggest positive signed int is 0 followed by all 1s.
-    - conversion between different base: 2, 10, 16
+    - -1       | 11111111 11111111 11111111 11111111
+      INT_MAX  | 01111111 11111111 11111111 11111111
+      INT_MIN  | 10000000 00000000 00000000 00000000
+      UINT_MAX | 11111111 11111111 11111111 11111111
+    - conversion between different base: 16 - 2 - 10
+        0 - 0000 - 0,    1 - 0001 - 1,    2 - 0010 - 2,    3 - 0011 - 3
+        4 - 00100 - 4,   5 - 00101 - 5,   6 - 00110 - 6,   7 - 00111 - 7
+        8 - 1000 - 8,    9 - 1001 - 9,    a - 1010 - 10,   b - 1011 - 11
+        c - 1100 - 12,   d - 1101 - 13,   e - 1110 - 14,   f - 1111 - 15
 */
 string unsigned_binary_addition(string bin1, string bin2) {
     if (bin1.size() < bin2.size()) return unsigned_binary_addition(bin2, bin1);
