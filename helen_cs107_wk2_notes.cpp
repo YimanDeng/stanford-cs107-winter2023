@@ -2,7 +2,7 @@
 using namespace std
   
   /*
-  assignment tips
+  1. assignment tips
     Declaring a literal (when you want something different from the default)
       - put a U after a number literal to make it unsigned. For instance, 1U means the literal 1 as an unsigned number.
       - put an L after a number literal to make it a long (64 bits)
@@ -26,4 +26,6 @@ using namespace std
       - stack frames
           up moves you up one stack frame, similarly down
           helpful if you're stuck at a segfault and want to know the arguments and local vars of the faulting function's caller
+    Bitwise tips
+      - & often used for isolating, | often used for adding in bits, ^ often used for toggling, ~ invert bits
   */
