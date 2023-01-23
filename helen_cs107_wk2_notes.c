@@ -32,8 +32,15 @@ using namespace std
   
   /*
   2. C char
-    ascii - 8-bit encoding
-    UTF-8 - assign each code value an unsigned byte sequence of one to four bytes in length
+    ascii 
+      - 8-bit encoding
+    UTF-8 
+      - assign each code value an unsigned byte sequence of one to four bytes in length
+      - backward compatibility with ascii, chars in the ASCII encoding have the same encoding in UTF-8
+      - a char's code point is commonly written in the format U+NNNN, which signifies the hexadecimal value 0xNNNN
+      - U+0000 ~ U+007F | 1 byte long
+        U+0080 to U+07FF | 2 bytes long
+        U+0800 to U+FFFF | 3 bytes long
   */
   #include <ctype.h>
   isalpha(); isdigit(); isspace(); ispunct(); isalnum(); isascii(); islower();  // returns zero if the character tests false and returns non-zero if the character tests true.
