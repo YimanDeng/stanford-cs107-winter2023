@@ -54,6 +54,8 @@ using namespace std
       - array variable that's converted to a pointer when accessing the elements
     comparing c strings
       - comparing by pointer values only returns if one address is before the other, use strcmp() instead
+    How would you test whether string s is a suffix of string t?
+      - strncomp(s, t + strlen(t) - strlen(s)). Also check for the case when suffix s is longer than the t.
   */
   char *s1 = "cat";
   char *s2 = s1; // not a copy! points to same address as s1
@@ -71,3 +73,4 @@ using namespace std
   size_t strcspn(const char *s, const char *reject); // opposite of strspn, c stanfords for complement
   char *strdup(char *s); // allocates memory on the heap, copies s, returns pointer to copy. Need to be freed by free(char *copy)
   char *strndup(char *s); // copy up to n chars, always null-terminating
+  char *strtok(char *s, const char *delimiter); // used to isolate sequential tokens in a null-terminated string. modifies original s
