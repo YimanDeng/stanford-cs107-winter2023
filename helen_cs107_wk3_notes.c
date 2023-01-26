@@ -27,7 +27,8 @@ printf("Mystery: %c\n", mystery); // prints out 'C'
   Not pointers, you can't change what it points to.
   Access elements like arr[2] or *(arr + 2)
   A pointer to an array points to the first element in the array
-  When doing pointer arithmetic, ++ means incrementing address by size of an element of type of array, compiler knows how wide the type is.
+  Pointer arithmetic
+    - plus, minus ++ means incrementing address by size of an element of type of array, compiler knows how wide the type is.
   You can't get the size of an array after you pass it in a function
   Arrays are passed by reference, means passing a pointer. So you can modify the elements passed in; use const to avoid.
   C doesn't check for end of array, can walk off the end
