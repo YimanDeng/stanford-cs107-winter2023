@@ -111,3 +111,18 @@ void* calloc(size_t count, size_t size);
 void* malloc(size_t size);
 void* realloc(void *ptr, size_t size);
 void free(void *ptr);
+
+/*
+4. Assignment tips
+  const char* (and const char **, const char ***, etc) 
+    - mean the characters at the location ultimately being referred to cannot be modified, but any pointer on the way there can be modified. 
+  environment variables that live inside your terminal session
+    - used to let the shell know how to execute certain programs. can access them in c program
+    - command printenv
+    - third parameter for main() to take in: const char* envp[]. No count, we loop through it until a NULL entry marking its end
+    - need a bit of processing to separate name and value
+*/
+const char* user_name = get_env_value(envp, "USER"); // we'll write get_env_value
+if (user_name != NULL) {
+  printf("Hello, %s!", user_name);
+}
