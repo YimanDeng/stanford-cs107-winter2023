@@ -118,9 +118,16 @@ void free(void *ptr);
     - mean the characters at the location ultimately being referred to cannot be modified, but any pointer on the way there can be modified. 
   environment variables that live inside your terminal session
     - used to let the shell know how to execute certain programs. can access them in c program
-    - command printenv
+  Unix printenv
     - third parameter for main() to take in: const char* envp[]. No count, we loop through it until a NULL entry marking its end
-    - need a bit of processing to separate name and value
+    - Each element in envp is a string of the form KEY=VALUE. need a bit of processing to separate name and value
+  Unix which // we will write which 
+    - used to identify the location of a given executable
+    - When type which ls, terminal goes through each of the paths in the PATH variable and search the ls executable
+  Unix printenv PATH
+    - colon delimited list of filepaths
+  Change environment variable for 1 iteration
+    - env VARNAME=custom_value ./my_executable
 */
 const char* user_name = get_env_value(envp, "USER"); // we'll write get_env_value
 if (user_name != NULL) {
