@@ -20,6 +20,17 @@ char **strptr = &str;
 char mystery = **strptr;
 printf("Mystery: %c\n", mystery); // prints out 'C'
 
+// Double pointers
+// write a function that returns the char in a string pointed by p, and updates string ptr to point to the next char
+char* next(char** p) {
+  char next = *(p)[0];
+  *(p)++; // string ptr getting updated
+  return next;
+}
+
+char* pB = "hello";
+printf("next(&pB): %c\n", next(&pB));
+
 
 /*
 2. Arrays in C
@@ -67,16 +78,6 @@ void swapC(char** arr) {
   *(arr + index_y) = temp; // very similar to swapA, but faster since we are only swapping pointers.
 }
 
-// Double pointers
-// write a function that returns the char in a string pointed by p, and updates string ptr to point to the next char
-char* next(char** p) {
-  char next = *(p)[0];
-  *(p)++; // string ptr getting updated
-  return next;
-}
-
-char* pB = "hello";
-printf("next(&pB): %c\n", next(&pB));
 
 /*
 3. x86-64 Memory Layout
@@ -112,11 +113,14 @@ void* malloc(size_t size);
 void* realloc(void *ptr, size_t size);
 void free(void *ptr);
 
+
 /*
 4. Assignment tips
   const char* (and const char **, const char ***, etc) 
     - mean the characters at the location ultimately being referred to cannot be modified, but any pointer on the way there can be modified. 
-  environment variables that live inside your terminal session
+  
+  Environment variables 
+    - live inside your terminal session
     - used to let the shell know how to execute certain programs. can access them in c program
   Unix printenv
     - third parameter for main() to take in: const char* envp[]. No count, we loop through it until a NULL entry marking its end
@@ -126,10 +130,16 @@ void free(void *ptr);
     - When type which ls, terminal goes through each of the paths in the PATH variable and search the ls executable
   Unix printenv PATH
     - colon delimited list of filepaths
+  
   Change environment variable for 1 iteration
     - env VARNAME=custom_value ./my_executable
+    
+  Bad design of strtok()
 */
 const char* user_name = get_env_value(envp, "USER"); // we'll write get_env_value
 if (user_name != NULL) {
   printf("Hello, %s!", user_name);
 }
+
+#include <assert.h>
+assert(expression);
