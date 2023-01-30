@@ -67,7 +67,7 @@ using namespace std
   char *strncpy(char *dst, const char *srs, size_t len); // if no null byte in first n char of src, dst will NOT be null-terminated
   char *strcat(char *dst, const char *src); // append src onto end of dst, dst always null-terminated
   char *strncat(char *dst, const char *arc, size_t n); // only copies n chars
-  size_t strspn(const char *s, const char *accept); // returns length in bytes of initial part of s which only contains chars in accept
+  size_t strspn(const char *s, const char *accept); // returns num of chars of initial part of s which only contains chars in accept
   size_t strcspn(const char *s, const char *reject); // opposite of strspn, c stanfords for complement
   char *strdup(char *s); // allocates memory on the heap, copies s, returns pointer to copy. Need to be freed by free(char *copy)
   char *strndup(char *s); // copy up to n chars, always null-terminating
