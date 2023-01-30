@@ -134,7 +134,12 @@ void free(void *ptr);
   Change environment variable for 1 iteration
     - env VARNAME=custom_value ./my_executable
     
-  Bad design of strtok()
+  Design issues of strtok()
+    - strtok modifies the passed-in input, so we cannot pass in read-only strings
+    - strtok can only manage one active tokenization at a time. 
+      starting a second tokenization before finishing the first will delete the saved state of the first and replace it with the second.
+    - thus, when we write scan_token, we don't use static/global varisables, and do not modify the input string
+    
 */
 const char* user_name = get_env_value(envp, "USER"); // we'll write get_env_value
 if (user_name != NULL) {
