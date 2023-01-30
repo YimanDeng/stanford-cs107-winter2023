@@ -101,17 +101,33 @@ void swapC(char** arr) {
     - limited scope
   Dynamic allocation
     - in C++ when you use new and delete
-    - malloc, memoery allocation for a specified number of bytes. if malloc return NULL, not enough memory to request
+    - malloc, memory allocation for a specified number of bytes. returns ptr. if malloc return NULL, not enough memory to request.
     - free, ptr must point to a previously allocated block (or it can be NULL). Once a program frees memory, it cannot be used again. 
       The pointer can be used to point elsewhere.
+    - calloc, contiguously allocates space for count objects that are size bytes of memory each returns a pointer to the allocated memory is filled with bytes of value
+  Why we like heap allocation
+    - plentiful.
+    - Allocation and deallocation are under the program's control — you can precisely determine the lifetime of a block of memory.
+    - can resize
+  Why we don't like heap allocation
+    - only moderately efficient
+    - low type safety
+    - memory management is tricky. initialize, keep track of amount of bytes requested, free but not free twice.
+    - leaks possible
+  When is heap allocation required
+    - very large allocation
+    - dynamic construction
+    - need to control lifetime - memory must persist outside of function call
+    - need to resize memory after initial allocation
+  .valgrind is your friend.
 */
 int scores = malloc(20 * sizeof(int)); // 20 integers. malloc works in bytes
 int scores = calloc(20, sizeof(int)); // diff: it zeros out the memory for you.
 
-void* calloc(size_t count, size_t size);
 void* malloc(size_t size);
+void* calloc(size_t count, size_t size); 
 void* realloc(void *ptr, size_t size);
-void free(void *ptr);
+void free(void *ptr); // undefined behavior on non-heap address.
 
 
 /*
