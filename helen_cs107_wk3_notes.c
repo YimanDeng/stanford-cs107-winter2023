@@ -146,9 +146,14 @@ void free(void *ptr); // undefined behavior on non-heap address.
     - When type which ls, terminal goes through each of the paths in the PATH variable and search the ls executable
   Unix printenv PATH
     - colon delimited list of filepaths
-  
   Change environment variable for 1 iteration
     - env VARNAME=custom_value ./my_executable
+  Unix access / acess library function
+    - int access(const char *pathname, int mode);
+    - access [-rwxF] file
+    - "mode" is a bitwise OR of the constants F_OK, R_OK, W_OK, and X_OK, which represent the existence, read, write, and execute permissions
+    - The function returns 0 if the file exists and the requested permissions are granted, otherwise it returns -1 and sets the errno variable to indicate error
+    
     
   Design issues of strtok()
     - strtok modifies the passed-in input, so we cannot pass in read-only strings
