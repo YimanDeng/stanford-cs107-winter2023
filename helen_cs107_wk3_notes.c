@@ -163,34 +163,14 @@ void free(void *ptr); // undefined behavior on non-heap address.
   Documentation
     - When functions have assumptions, limitations or flaws, documentation should make these clear.
     - goal for manual page reference should be that a client can effectively use your function without seeing the code, 
-      just like how you can use string functions without seeing their implementations.
-          
+      just like how you can use string functions without seeing their implementations.   
           scan_token DOCUMENTATION
-          
           NAME
-              scan_token - # TODO write a one-sentence description of scan_token
-              bool scan_token(const char **p_input, const char *delimiters,
-                              char buf[], size_t buflen);
-                              
-          ARGUMENTS
-              const char **p_input - #TODO: write one sentence explaining the p_input argument
-              const char *delimiters - #TODO: write one sentence explaining the delimiters argument
-              char buf[] - #TODO: write one sentence explaining the buf argument
-              size_t buflen - #TODO: write one sentence explaining the buflen argument
-              
-          RETURN VALUE
-              #TODO: write a 1-3 sentence description of the possible return values of scan_token.
-              Make sure to include a description of what will be stored in the buf argument upon return.
-              
-          ASSUMPTIONS
-              #TODO: write 2-5 sentences explaining the assumptions made by your scan_token function.
-              Here is an example: The scan_token function assumes that the buf argument
-              has space for buflen characters.
-              
+          ARGUMENTS 
+          RETURN VALUE  
+          ASSUMPTIONS  
           DESCRIPTION
-              #TODO: write one paragraph explaining the implementation of your scan_token function.
-              This section should include (high-level) implementation details. You can use your function-header
-              comment as a starting point for this section.
+
   */
 const char* user_name = get_env_value(envp, "USER"); // we'll write get_env_value
 if (user_name != NULL) {
