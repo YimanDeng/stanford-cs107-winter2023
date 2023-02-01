@@ -23,8 +23,8 @@ printf("Mystery: %c\n", mystery); // prints out 'C'
 // Double pointers
 // write a function that returns the char in a string pointed by p, and updates string ptr to point to the next char
 char* next(char** p) {
-  char next = *(p)[0];
-  *(p)++; // string ptr getting updated
+  char next = (*p)[0];
+  (*p)++; // string ptr getting updated
   return next;
 }
 
@@ -63,7 +63,7 @@ void swapA(int *arr, int index_x, int index_y) { // first arg identical to arr[]
   *(arr + index_x) = *(arr + index_y);
   *(arr + index_y) = temp;
 }
-// can do same ting with memmove
+// can do same thing with memmove
 void swapB(int *arr, int index_x, int index_y) {
   int tmp;
   memmove(&tmp, arr + index_x, sizeof(int)); // this works because we know the size of the elements in the array, int
@@ -124,7 +124,7 @@ void swapC(char** arr) {
 int scores = malloc(20 * sizeof(int)); // 20 integers. malloc works in bytes
 int scores = calloc(20, sizeof(int)); // diff: it zeros out the memory for you.
 
-void* malloc(size_t size);
+void* malloc(size_t size); // size in bytes
 void* calloc(size_t count, size_t size); 
 void* realloc(void *ptr, size_t size);
 void free(void *ptr); // undefined behavior on non-heap address.
@@ -133,7 +133,7 @@ void free(void *ptr); // undefined behavior on non-heap address.
 /*
 4. Assignment tips
   const char* (and const char **, const char ***, etc) 
-    - mean the characters at the location ultimately being referred to cannot be modified, but any pointer on the way there can be modified. 
+    - the characters at the location ultimately being referred to cannot be modified, but any pointer on the way there can be modified. 
   
   Environment variables 
     - live inside your terminal session
