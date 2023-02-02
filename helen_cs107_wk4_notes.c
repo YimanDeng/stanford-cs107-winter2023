@@ -54,3 +54,11 @@ void qsort(void *base, size_t nelm, size_t size, int (*compar)(const void *, cos
 int compar_str(cosnt void *s1, const void *s2) {
   return strcmp(*(char **)s1, *(char **) s2);
 }
+
+/*
+Valgrind
+  Memory leak
+    - didn't free memory you previously allocated
+  Memory access
+    - read or write memory you don'thave access to
+*/
