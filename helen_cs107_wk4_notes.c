@@ -48,9 +48,9 @@ void print_array(void *arr, size_t nelems, int width, void (*pr_func)(void *)) {
 
 print_array(i_array, i_nelems,sizeof(i_array[0]), print_int);
 
-// each one of the void* points to an elem in the array, the int it returns indicates result of comparison
 void qsort(void *base, size_t nelm, size_t size, int (*compar)(const void *, cosnt void *)); 
 
+// each one of the void* points to an elem in the array, the int it returns indicates result of comparison
 int compar_str(cosnt void *s1, const void *s2) {
   return strcmp(*(char **)s1, *(char **) s2);
 }
