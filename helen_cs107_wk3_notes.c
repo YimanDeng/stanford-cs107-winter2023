@@ -179,3 +179,6 @@ if (user_name != NULL) {
 
 #include <assert.h>
 assert(expression);
+
+char *fgets(char *s, int size, FILE *stream);
+FILE *fopen(const char *filename, const char *mode)
