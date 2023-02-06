@@ -128,6 +128,7 @@ bool stack_pop(stack* s, void* addr) {
 
 /*
 4. Assignment Tips
+
 Valgrind
   Memory leak
     - didn't free memory you previously allocated
