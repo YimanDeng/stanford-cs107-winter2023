@@ -39,6 +39,7 @@ for (size_t i=0; i < nelems; i++) {
 /* 
 2. Function Pointers
   a variable that stores the address of a function that can later be called through that function pointer
+  Pass in a pointer to the object of interest.
 */
 void print_int(void *arr) { // need to create one of these for every type
   int i = *(int *)arr;
