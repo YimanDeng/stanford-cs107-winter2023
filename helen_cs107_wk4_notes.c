@@ -45,6 +45,8 @@ void print_int(void *arr) { // need to create one of these for every type
   printf("%d",i);
 }
 
+// can use typedef void (*pr_func)(void *);
+// but this function is generic
 void print_array(void *arr, size_t nelems, int width, void (*pr_func)(void *)) { // func ptwr don't need & because it's implied
   for (int i=0; i < nelems; i++) {
     void *element = (char *)arr + i * width;
@@ -52,7 +54,7 @@ void print_array(void *arr, size_t nelems, int width, void (*pr_func)(void *)) {
     i == nelems - 1 ? printf("\n") : printf(", ");
   }
 }
-print_array(i_array, i_nelems,sizeof(i_array[0]), print_int);
+print_array(i_array, i_nelems, sizeof(i_array[0]), print_int);
 
 // each one of the void* points to an elem in the array, the int it returns indicates result of comparison
 int compar_str(cosnt void *s1, const void *s2) {
