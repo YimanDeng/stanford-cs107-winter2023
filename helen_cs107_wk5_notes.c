@@ -42,3 +42,14 @@
 float f = 0.1; 
 // print with 27 decimal places
 printf("%.27f\n",f);
+
+/*
+Assignment tips
+  The bsearch() function searches an array of nel objects, the initial member of which is pointed to by base, for a
+  member that matches the object pointed to by key.  The size (in bytes) of each member of the array is specified by
+  width. Returns a pointer to a matching member of the array
+  
+  gdb
+    p FIRST_ELEM@COUNT where FIRST_ELEM is the first element to print and COUNT is the count of elements to print.
+*/
+void* bsearch(const void *key, const void *base, size_t nel, size_t width, int (*compar) (const void *, const void *));
