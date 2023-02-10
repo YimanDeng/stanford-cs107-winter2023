@@ -40,6 +40,8 @@ for (size_t i=0; i < nelems; i++) {
 2. Function Pointers
   a variable that stores the address of a function that can later be called through that function pointer
   Pass in a pointer to the object of interest.
+  Try to preserve the "const-ness" of the parameters when casting
+  Knowing the type of the input is important (how many *s) because you don't want to compare addresses.
 */
 void print_int(void *arr) { // need to create one of these for every type
   int i = *(int *)arr;
