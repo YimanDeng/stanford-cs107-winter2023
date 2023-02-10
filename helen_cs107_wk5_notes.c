@@ -44,6 +44,46 @@ float f = 0.1;
 printf("%.27f\n",f);
 
 /*
+2. Assembly language
+  The textual representation of the machine code. Computers understand Assembly code
+  The compiler gcc generates assembly code from C code.
+  No types. Unique to the processor. The one we use on the Myth machines is x86.
+  Machine level code is based on "instruction set architecture"
+  
+  Things hidden in c:
+    - %rip the program counter, register instruction pointer a number indicating address of next instruction. 
+      16 locations each 8-byte. They are not in main memory, do not have address, cannot pass in a pointer
+      Can hold address or int values.
+      Registers are used for arithmetic, local variables, and return values for functions
+      Condition code register, holds status info on most recent aristhmetic/logical instruction.
+    - No different data types
+      A single machine instruction performs only a very elementary operation. Add, transfers data, conditionally branches
+    - emacs hello.s
+    - %rsp, stack pointer
+    - disas main
+    
+  Intel:
+    - word, 2-byte, w
+    - double words, 4 byte, l
+    - long, quad words, 8 bytes, q
+    
+  Integer registers are nested
+    - e.g., %rax, %eax, %%ax, %al, these are on the same register, just different parts
+  
+  $number means "the number"
+  
+  Operand forms
+    - Imm(rb, ri, rs) = Imm + R[rb] + R[ri] * s
+    - immediate value, 2 register values, 1 scaling factor
+  
+  Data movemet instructions
+    - mov　source and dest, at most 1 can be a memory address. 
+    - movl, movw, movb, ...
+    - movabsq
+    - movz (zeros out the upper bits), movs
+*/
+
+/*
 Assignment tips
   The bsearch() function searches an array of nel objects, the initial member of which is pointed to by base, for a
   member that matches the object pointed to by key.  The size (in bytes) of each member of the array is specified by
