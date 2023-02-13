@@ -56,21 +56,25 @@ printf("%.27f\n",f);
       Can hold address or int values.
       Registers are used for arithmetic, local variables, and return values for functions
       Condition code register, holds status info on most recent aristhmetic/logical instruction.
+    - Return values goes into a register %rax
     - No different data types
       A single machine instruction performs only a very elementary operation. Add, transfers data, conditionally branches
     - emacs hello.s
-    - %rsp, stack pointer
-    - disas main
+    - Unix disas main
     
-  Intel:
+  Intel data foramts
     - word, 2-byte, w
     - double words, 4 byte, l
     - long, quad words, 8 bytes, q
-    
-  Integer registers are nested
-    - e.g., %rax, %eax, %ax, %al, these are on the same register, just different parts
+   
+  Registers
+    - Starts with r, %ax, %bx, %cx, %dx, %si, %di (the first argument), %bp, %sp
+    - More added, %r8, ..., %r15
+    - %rsp, stack pointer
+    - Integer registers are nested
+        e.g., %rax, %eax, %ax, %al, these are on the same register, just different parts
   
-  $number means "the number"
+  $number means "the literal number"
   
   Operand forms
     - Imm(rb, ri, rs) = Imm + R[rb] + R[ri] * s
@@ -78,9 +82,11 @@ printf("%.27f\n",f);
   
   Data movemet instructions
     - mov　source and dest, at most 1 can be a memory address. 
-    - movl, movw, movb, ...
-    - movabsq
-    - movz (zeros out the upper bits), movs
+    - movl (4 bytes zeroes out upper bits), movw (2 bytes), movb (1 bytes), movq (8 bytes)
+    - movabsq (used when 64bit immediate value needed in a register, regular movq can only take 32 immediate value)
+    - From smaller to larger source
+      movz (zeros out the upper bits)
+      movs (fills the remaining bytes by sign-extending the most significant bit in the source)
 */
 
 /*
