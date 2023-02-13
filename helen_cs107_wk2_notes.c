@@ -62,7 +62,7 @@ using namespace std
   int strcmp(const char *s, const char *t); // compare 2 strings alphabetically char by char, return 0 is identical, <0 if s<t, othersie >0
   int strncmp(const char *s, const char *t, size_t n); // stops after n chars and doesn't traverse past null char
   char *strchr(const char *s, int ch); // returns pointer to the first occurrence of a char in s, NULL is char not in string
-  char *strstr(const char *haystack); // returns pointer to the first occurrence of needle in haystack, NULL if no needle
+  char *strstr(const char *haystack, const char *needle); // returns pointer to the first occurrence of needle in haystack, NULL if no needle
   char *strcpy(char *dst, const char *src); // copies src to dst. Beware of "buffer overflows," dst needs to have enough space
   char *strncpy(char *dst, const char *srs, size_t len); // if no null byte in first n char of src, dst will NOT be null-terminated
   char *strcat(char *dst, const char *src); // append src onto end of dst, dst always null-terminated
