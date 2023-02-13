@@ -68,7 +68,7 @@ printf("%.27f\n",f);
     - long, quad words, 8 bytes, q
     
   Integer registers are nested
-    - e.g., %rax, %eax, %%ax, %al, these are on the same register, just different parts
+    - e.g., %rax, %eax, %ax, %al, these are on the same register, just different parts
   
   $number means "the number"
   
@@ -89,7 +89,7 @@ Assignment tips
   member that matches the object pointed to by key.  The size (in bytes) of each member of the array is specified by
   width. Returns a pointer to a matching member of the array
   
-  gdb
+  gdb print out an array
     p FIRST_ELEM@COUNT where FIRST_ELEM is the first element to print and COUNT is the count of elements to print.
 */
 void* bsearch(const void *key, const void *base, size_t nel, size_t width, int (*compar) (const void *, const void *));
