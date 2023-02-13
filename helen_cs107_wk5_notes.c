@@ -90,7 +90,7 @@ printf("%.27f\n",f);
 */
 
 /*
-Assignment tips
+3. Assignment tips
   The bsearch() function searches an array of nel objects, the initial member of which is pointed to by base, for a
   member that matches the object pointed to by key.  The size (in bytes) of each member of the array is specified by
   width. Returns a pointer to a matching member of the array
