@@ -53,6 +53,7 @@ printf("%d", *arrptr++); // * takes precedence. dereference arrptr and return th
 
 void *memcpy(void *dst, const void *src, size_t n); // src and dst may not overlap, copies n bytes from memory area src to memory area dst
 void *memove(void *dest, const void *src, size_t n); // allows overlapping memory areas. not as fast as memcpy
+// You only need to invoke raw byte-copying when the type/amount of memory being copied is determined at runtime.
 
 char s1[] = "string in an array"; // allows modifying, declaration of a string as array
 char *s2 = "string literal with pointer"; // no modifying, attempt would result in seg fault
