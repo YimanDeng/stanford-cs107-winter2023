@@ -97,5 +97,18 @@ printf("%.27f\n",f);
   
   gdb print out an array
     p FIRST_ELEM@COUNT where FIRST_ELEM is the first element to print and COUNT is the count of elements to print.
+    
+  scandir
+    dirent struct is directory entry, has field char d_name[] to store the filename.
+    `dirp`: The path of the directory to be scanned
+    `namelist`: A pointer to an array of struct dirent pointers. The scandir function allocates memory for this array and populates it with pointers to directory entries.
+    `filter`: A pointer to a function that is used to filter the directory entries. If this argument is NULL, all entries are included in the result.
+    `compar`: A pointer to a function that is used to sort the directory entries. If this argument is NULL, the entries are not sorted.
+    returns the number of entries in the directory, -1 on error
+    user needs to free namelist entries and namelist.
 */
+#include <dirent.h>
+int scandir(const char *dirp, struct dirent ***namelist, int (*filter)(const struct dirent *),
+              int (*compar)(const struct dirent **, const struct dirent **));
+
 void* bsearch(const void *key, const void *base, size_t nel, size_t width, int (*compar) (const void *, const void *));
