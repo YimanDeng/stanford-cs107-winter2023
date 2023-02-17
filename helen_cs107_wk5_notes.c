@@ -46,7 +46,7 @@ printf("%.27f\n",f);
 /*
 2. Assembly language
   The textual representation of the machine code. Computers understand Assembly code
-  The compiler gcc generates assembly code from C code.
+  The compiler gcc generates assembly code from C code. Assembly then converted to machine level code.
   No types. Unique to the processor. The one we use on the Myth machines is x86.
   Machine level code is based on "instruction set architecture"
   
@@ -68,9 +68,10 @@ printf("%.27f\n",f);
     - long, quad words, 8 bytes, q
    
   Registers
-    - Starts with r, %ax, %bx, %cx, %dx, %si, %di (the first argument), %bp, %sp
+    - Starts with r, %ax, %bx, %cx, %dx, %si, %di, %bp, %sp
     - More added, %r8, ..., %r15
     - %rsp, stack pointer
+    - 1st 2nd 3rd argument into %rdi, %rsi, %rdx
     - Integer registers are nested
         e.g., %rax, %eax, %ax, %al, these are on the same register, just different parts
   
@@ -80,7 +81,7 @@ printf("%.27f\n",f);
     - Imm(rb, ri, rs) = Imm + R[rb] + R[ri] * s
     - immediate value, 2 register values, 1 scaling factor
   
-  Data movemet instructions
+  Data movement instructions
     - mov　source and dest, at most 1 can be a memory address. 
     - movl (4 bytes zeroes out upper bits), movw (2 bytes), movb (1 bytes), movq (8 bytes)
     - movabsq (used when 64bit immediate value needed in a register, regular movq can only take 32 immediate value)
