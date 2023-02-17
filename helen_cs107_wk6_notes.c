@@ -64,3 +64,9 @@
       We can conditionally transfer data.
       jmp Label = direct uncodnditional jump
 */
+
+/*
+Lab
+  GDB commands
+  
+*/
