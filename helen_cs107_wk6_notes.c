@@ -3,7 +3,7 @@
 1. More Assembly
   - colon : is label, indicates function call in Assembly
   - First parameter in %rdi
-  - Lea instruction
+  - Lea instruction (load effective address)
       Related to mov, think of it as the & in C. It retrieves the address of the memory location
       lea S, D = &S -> D
   - Push and pop on the stack, modify %rsp
@@ -39,7 +39,7 @@
       mulq S R[%rdx]:R[%rax] ⟵ S × R[%rax] Unsigned full multiply
     Special divison operations
       cqto = R[%rdx]:R[%rax] ⟵ SignExtend(R[%rax]) Convert to oct word
-      idivq = S R[%rdx] ⟵ R[%rdx]:R[%rax] mod S; Signed divide
+      idivq S = R[%rdx] ⟵ R[%rdx]:R[%rax] mod S; Signed divide
                 R[%rax] ⟵ R[%rdx]:R[%rax] ÷ S
       divq S = R[%rdx] ⟵ R[%rdx]:R[%rax] mod S; Unsigned divide
                R[%rax] ⟵ R[%rdx]:R[%rax] ÷ S
