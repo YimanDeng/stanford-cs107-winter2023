@@ -54,15 +54,43 @@
     For shift operations, the carry flag is set to the last bit shifted out, while the overflow flag is set to zero. inc and dec set the overflow 
     and zero flags, but leave the carry flag unchanged
     
-  cmp and test
-    They set condition flags without altering any other registers,
-    CMP S1, S2 = S2 - S1 Compare
-    TEST S1, S2 = S2 & S1
-    Usage
-      We can set a single byte to 0 or 1 depending on some combination of the condition codes.
-      We can conditionally jump to some other part of the program.
-      We can conditionally transfer data.
-      jmp Label = direct uncodnditional jump
+    cmp and test
+      They set condition flags without altering any other registers,
+      CMP S1, S2 = S2 - S1 Compare
+      TEST S1, S2 = S2 & S1
+      Usage
+        We can set a single byte to 0 or 1 depending on some combination of the condition codes.
+        We can conditionally jump to some other part of the program.
+        We can conditionally transfer data.
+        jmp Label = direct uncodnditional jump
+    Conditional moves
+      cmove S, R
+      Runs faster than jumps since jumps are bit expensive for registers.
+    For loops
+      If/while loops conditionals are done via jumps
+      for loop is while loop in disguise
+
+    Procedures (Functions)
+      1.Pass control: update the program counter (%rip) to the start of the function, 
+      and then at the end of the function, set the program counter to the instruction after the call.
+      2.Pass data: P must be able to provide parameters to Q, and Q must be able to
+      return a value back to P.
+      3.Allocate and deallocate memory: Q may need to allocate space for local
+      variables when it begins, and free the storage when it returns. (generally on the stack)
+    The Runtime stack
+      Frame for calling function P
+        Earlier function higher on the stack
+        Argument 7-n
+        Return address (the address after the fn call address)
+      frame for executing function Q.
+        Saved registers
+        Local variables
+        Argument build area
+      -> %rsp, Stack "top"
+    Some function don't even need a stack frame.
+    When P calls Q, The next instruction in P after the call is pushed onto the stack (return address),
+    the program counter is set to the first instruction in Q. When Q executes a ret instruction, 
+    the return address is popped off the stack and the PC is set to that value.
 */
 
 /*
