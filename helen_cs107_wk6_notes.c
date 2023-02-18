@@ -66,7 +66,17 @@
 */
 
 /*
-Lab
-  GDB commands
+2. Helpful tools in assembly deciphering
+  godbolt.org
   
+  gdb commands
+    display/4i $rip: This command displays four assembly instructions at once after each step. $rip points to the next instrutcion that's about to run.
+    si: This command steps one assembly instruction at a time
+    disas function_name: This will disassemble an entire function for you.
+    p $rax: This prints the value of $rax.
+    p *(char **)($rsp): This dereferences a char ** pointer in $rsp and printsthe string value.
+  • p *(char **)$rsp@10: If $rsp points to the start of an array, this will print out the first ten elements in the array!
+  stepi, nexti
+  info reg
+  layout split
 */
