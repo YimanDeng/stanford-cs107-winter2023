@@ -107,9 +107,16 @@ printf("%.27f\n",f);
     `compar`: A pointer to a function that is used to sort the directory entries. If this argument is NULL, the entries are not sorted.
     returns the number of entries in the directory, -1 on error
     user needs to free namelist entries and namelist.
+    Filter: A non-zero return value indicates that the entry should be kept, and a zero return value indicates that the entry should be discarded.
+  
+  typedef function pointers
+    When we define int_func_t as typedef int (*int_func_t)(int);, we are defining a new type int_func_t as a pointer to 
+    a function that takes an int argument and returns an int.
 */
 #include <dirent.h>
 int scandir(const char *dirp, struct dirent ***namelist, int (*filter)(const struct dirent *),
               int (*compar)(const struct dirent **, const struct dirent **));
+
+
 
 void* bsearch(const void *key, const void *base, size_t nel, size_t width, int (*compar) (const void *, const void *));
