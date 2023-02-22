@@ -16,7 +16,8 @@
         popq %rax = 
           movq (%rsp), %rax
           addq $8, %rsp
-          
+    
+  Arithmetic
     Unary instructions (act on single memory/register)
       inc D, dec D, neg D, not D
     Binary instructions (register or memory, but not both)
@@ -70,7 +71,7 @@
       If/while loops conditionals are done via jumps
       for loop is while loop in disguise
 
-    Procedures (Functions)
+  Procedures (Functions)
       1.Pass control: update the program counter (%rip) to the start of the function, 
       and then at the end of the function, set the program counter to the instruction after the call.
       2.Pass data: P must be able to provide parameters to Q, and Q must be able to
@@ -103,7 +104,7 @@
     disas function_name: This will disassemble an entire function for you.
     p $rax: This prints the value of $rax.
     p *(char **)($rsp): This dereferences a char ** pointer in $rsp and printsthe string value.
-  • p *(char **)$rsp@10: If $rsp points to the start of an array, this will print out the first ten elements in the array!
+    p *(char **)$rsp@10: If $rsp points to the start of an array, this will print out the first ten elements in the array!
   stepi, nexti
   info reg
   layout split
