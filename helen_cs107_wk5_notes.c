@@ -51,7 +51,7 @@ printf("%.27f\n",f);
   Machine level code is based on "instruction set architecture"
   
   Things hidden in c:
-    - %rip the program counter, register instruction pointer a number indicating address of next instruction. 
+    - %rip the program counter, register instruction pointer, a number indicating address of next instruction. 
       16 locations each 8-byte. They are not in main memory, do not have address, cannot pass in a pointer
       Can hold address or int values.
       Registers are used for arithmetic, local variables, and return values for functions
@@ -78,17 +78,20 @@ printf("%.27f\n",f);
   $number means "the literal number"
   
   Operand forms
-    - Imm(rb, ri, rs) = Imm + R[rb] + R[ri] * s
+    - Imm(rb, ri, rs) = Imm + R[rb] + R[ri] * s, then you dereference
+    - Similarly, move 4(%rax) ... means *(%rax + 4)
     - immediate value, 2 register values, 1 scaling factor
   
   Data movement instructions
+    - When moving, we are making the copy. The data is still in still inside the sources.
     - mov　source and dest, at most 1 can be a memory address. 
     - movl (4 bytes zeroes out upper bits), movw (2 bytes), movb (1 bytes), movq (8 bytes)
     - movabsq (used when 64bit immediate value needed in a register, regular movq can only take 32 immediate value)
     - From smaller to larger source
       movz (zeros out the upper bits)
       movs (fills the remaining bytes by sign-extending the most significant bit in the source)
-*/
+  When we have a parenthesis, we take what's in the register, and interpret it as a pointer value.
+*/ 
 
 /*
 3. Assignment tips
