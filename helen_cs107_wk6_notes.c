@@ -99,13 +99,29 @@
   godbolt.org
   
   gdb commands
-    display/4i $rip: This command displays four assembly instructions at once after each step. $rip points to the next instrutcion that's about to run.
-    si: This command steps one assembly instruction at a time
-    disas function_name: This will disassemble an entire function for you.
-    p $rax: This prints the value of $rax.
-    p *(char **)($rsp): This dereferences a char ** pointer in $rsp and printsthe string value.
-    p *(char **)$rsp@10: If $rsp points to the start of an array, this will print out the first ten elements in the array!
-  stepi, nexti
-  info reg
-  layout split
+    display/4i $rip
+      Displays four assembly instructions at once after each step. $rip points to the next instrutcion that's about to run.
+      undisplay xxx
+    x/1gx $rsp 
+      print out the 8 byte value at the top of the stack. ("Examine (1) (g)iantword in he(x) starting at $rsp")
+    si
+      This command steps one assembly instruction at a time
+      stepi, nexti
+    disas function_name
+      This will disassemble an entire function for you.
+    p
+      p $rax: This prints the value of $rax.
+      p *(char **)($rsp): This dereferences a char ** pointer in $rsp and printsthe string value.
+      p *(char **)$rsp@10: If $rsp points to the start of an array, this will print out the first ten elements in the array!
+      p ((int *)$rdi)[0]@$rsi // $rsi stores the length of the array
+    info reg
+    layout split
+    finish
+      finishes execution of the current function and returns to the calling function.
+    break *0x401368
+      break on individual Assembly instruction
+      break [BREAKPOINT] if [CONDITION]
+    watch
+      a special kind of breakpoint that stops your program whenever there is a change in the value of that expression 
+      or a write to that memory location.
 */
