@@ -125,3 +125,14 @@
       a special kind of breakpoint that stops your program whenever there is a change in the value of that expression 
       or a write to that memory location.
 */
+
+/*
+3. Vulnerabilities
+  - Use after free: If you have a pointer pointign to a block of memory that has already been freed.
+    Undefined behavior.
+  - buffer overflow
+  How to act
+    responsive disclosure
+    full disclosure (0-day)
+  Case study: EternalBlue
+*/
