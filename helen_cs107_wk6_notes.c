@@ -115,7 +115,12 @@
       p *(char **)$rsp@10: If $rsp points to the start of an array, this will print out the first ten elements in the array!
       p ((int *)$rdi)[0]@$rsi // $rsi stores the length of the array
     info reg
-    layout split
+    layout
+      layout split
+      layout source
+      layout asm
+      come back using ctrl-xa
+      ctrl p or n to have previous or later commands
     finish
       finishes execution of the current function and returns to the calling function.
     break *0x401368
@@ -135,4 +140,12 @@
     responsive disclosure
     full disclosure (0-day)
   Case study: EternalBlue
+*/
+
+/*
+4. Assignment Tips
+ It gets tiring real fast to read Assembly code without syntax highlighting, so use command
+ objdump -d [filepath] [filename].s
+ 
+ 
 */
