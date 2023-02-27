@@ -91,7 +91,13 @@
     Some function don't even need a stack frame.
     When P calls Q, The next instruction in P after the call is pushed onto the stack (return address),
     the program counter is set to the first instruction in Q. When Q executes a ret instruction, 
-    the return address is popped off the stack and the PC is set to that value.
+    the return address is popped off the stack and %rsp is set to that value.
+    
+  Caller vs callee owned registers
+    For caller owned registers, e.g., %rbx, you are expected to keep the value in it unchanged when calling a function.
+    Done thru push %rbx at the start and pop %rbx at the end
+    
+  Recursion
 */
 
 /*
@@ -104,6 +110,8 @@
       undisplay xxx
     x/1gx $rsp 
       print out the 8 byte value at the top of the stack. ("Examine (1) (g)iantword in he(x) starting at $rsp")
+    display/x *(long *)$rsp@5
+      display what 5 values are stored on the stack right now
     si
       This command steps one assembly instruction at a time
       stepi, nexti
@@ -144,8 +152,8 @@
 
 /*
 4. Assignment Tips
- It gets tiring real fast to read Assembly code without syntax highlighting, so use command
- objdump -d [filepath] [filename].s
+   It gets tiring real fast to read Assembly code without syntax highlighting, so use command
+   objdump -d [filepath] [filename].s
  
  
 */
