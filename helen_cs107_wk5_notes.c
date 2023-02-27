@@ -71,7 +71,7 @@ printf("%.27f\n",f);
     - Starts with r, %ax, %bx, %cx, %dx, %si, %di, %bp, %sp
     - More added, %r8, ..., %r15
     - %rsp, stack pointer
-    - 1st 2nd 3rd argument into %rdi, %rsi, %rdx
+    - 1st 2nd 3rd argument into %rdi, %rsi, %rdx, then %rcx, %r8, %r9
     - Integer registers are nested
         e.g., %rax, %eax, %ax, %al, these are on the same register, just different parts
   
