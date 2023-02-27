@@ -120,23 +120,29 @@
     p
       p $rax: This prints the value of $rax.
       p *(char **)($rsp): This dereferences a char ** pointer in $rsp and printsthe string value.
-      p *(char **)$rsp@10: If $rsp points to the start of an array, this will print out the first ten elements in the array!
+      p *(char **)$rsp@10: When interpreting $rsp as a pointer to an array of char*, this will print out the first ten elements in the array!
       p ((int *)$rdi)[0]@$rsi // $rsi stores the length of the array
     info reg
     layout
       layout split
       layout source
       layout asm
+      layout reg change the UI to also show the values of registers
       come back using ctrl-xa
       ctrl p or n to have previous or later commands
     finish
       finishes execution of the current function and returns to the calling function.
-    break *0x401368
+    b
+      break *0x401368
       break on individual Assembly instruction
       break [BREAKPOINT] if [CONDITION]
     watch
       a special kind of breakpoint that stops your program whenever there is a change in the value of that expression 
       or a write to that memory location.
+    <CTRL+L> 
+      repaint the screen to clear any visual artifacts that occur
+    objdump
+      objdump -d [filepath] [filename].s
 */
 
 /*
@@ -152,8 +158,7 @@
 
 /*
 4. Assignment Tips
-   It gets tiring real fast to read Assembly code without syntax highlighting, so use command
-   objdump -d [filepath] [filename].s
+
  
  
 */
