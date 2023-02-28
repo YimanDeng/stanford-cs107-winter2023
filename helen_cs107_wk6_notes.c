@@ -142,7 +142,12 @@
     <CTRL+L> 
       repaint the screen to clear any visual artifacts that occur
     objdump
-      objdump -d [filepath] [filename].s
+      objdump -d [filepath] > [filename].s
+    nm
+      use the nm utility (nm vault) to print what's called the "symbol table" of the executable, 
+      which contains the names of functions and global variables and their addresses.
+    strings
+      use the strings utility (strings vault) to print all the printable strings contained in the executable
 */
 
 /*
