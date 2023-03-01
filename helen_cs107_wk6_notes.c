@@ -108,8 +108,10 @@
     display/4i $rip
       Displays four assembly instructions at once after each step. $rip points to the next instrutcion that's about to run.
       undisplay xxx
+    x/20s $rax 
     x/1gx $rsp 
       print out the 8 byte value at the top of the stack. ("Examine (1) (g)iantword in he(x) starting at $rsp")
+    Whenever the stack pointer jumps byanything bigegr than 12, probably a stack array is declared, and it's helpful to examine the contents.
     display/x *(long *)$rsp@5
       display what 5 values are stored on the stack right now
     si
@@ -159,11 +161,4 @@
     responsive disclosure
     full disclosure (0-day)
   Case study: EternalBlue
-*/
-
-/*
-4. Assignment Tips
-
- 
- 
 */
