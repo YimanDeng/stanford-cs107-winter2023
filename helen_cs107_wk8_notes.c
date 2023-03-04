@@ -18,13 +18,14 @@ The heap allocator must be able to service an arbitrary sequence of malloc() and
 It must align blocks so that they satisfy all alignment requirements (e.g., 8-byte / 16 byte boundary)
 The allocator cannot move allocated blocks.
 
-Ideally, requests should be handled in constant itme, and not degrade to linear behavior
-The allocator must try for a tight space utilization. Should try to minimize fragmentation.
-Good locality, blocks are allocated close in time and space.
-Robust client errors should be recognized.
-Ease of implementation and maintenance. Use structs and typedef instead of having a lot of *(void **)
+Goals
+  Ideally, requests should be handled in constant itme, and not degrade to linear behavior
+  The allocator must try for a tight space utilization. Should try to minimize fragmentation.
+  Good locality, blocks are allocated close in time and space.
+  Robust, client errors should be recognized.
+  Ease of implementation and maintenance. Use structs and typedef instead of having a lot of *(void **)
 
-Questions
+Design questions
 - How do we track the information in a block?
 - How do we organize/find free block?
 - How do we pick which free block from available options?
@@ -32,14 +33,13 @@ Questions
 - How do we recycle a freed block? 
 
 Options
-- A separate list
-- Block header
+- A separate list. Valgrind uses this
+- Block header "implicit free list"
   info in same memory area as the payload, but precedes the payload. (What's actually used)
   Coalescing forward (can't do backward without footer)
-  The method demostrated is called "implicit free list", not really efficient
+  Have list of free blocks that we can traverse to find an appropriate fit. not really efficient
   Finding free blocks is a linear search process. (first-fit)
-- next-fit
-- best-fit
+  Other options like next-fit, best-fit.
 - Explicit free list
   Also keep the meta data inside the heap. Have a pointer to the next and previous free block.
   A linked list implementation.
