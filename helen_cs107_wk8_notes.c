@@ -38,10 +38,17 @@ Options
   info in same memory area as the payload, but precedes the payload. (What's actually used)
   Coalescing forward (can't do backward without footer)
   Have list of free blocks that we can traverse to find an appropriate fit. not really efficient
+  Do not bother making a new header is the blobks free is 0.
   Finding free blocks is a linear search process. (first-fit)
   Other options like next-fit, best-fit.
 - Explicit free list
   Also keep the meta data inside the heap. Have a pointer to the next and previous free block.
   A linked list implementation.
   Faster because you only have to traverse the free blocks.
+*/
+
+/*
+2. Assignment tips
+
+Cast void* pointer to a struct pointer to make it easier to debug.
 */
