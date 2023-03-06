@@ -49,6 +49,5 @@ Options
 
 /*
 2. Assignment tips
-
-Cast void* pointer to a struct pointer to make it easier to debug.
+  Cast void* pointer to a struct pointer to make it easier to debug.
 */
