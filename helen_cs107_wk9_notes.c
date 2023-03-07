@@ -51,5 +51,27 @@ Callgrind
 */
 
 /*
-# pragma
+2. C directives
+  #include
+    C90 standard headers list
+      <assert.h> <ctype.h> <errno.h> <float.h>
+      <limits.h> <locale.h> <math.h> <setjmp.h>
+      <signal.h> <stdarg.h> <stddef.h> <stdio.h>
+      <stdlib.h> <string.h> <time.h>
+  
+  # pragma
+    request special behavior from compiler
+    - once: if seen when scanning a header file, that file will never be read again
+  
+  # define
+    defines a macro. 
+    macro name followed by a space is a constant/literal
+      #define PI 3.14
+    macro name followed by parenthesis is a function-like macro (always good idea to use extra parenthesis)
+      #define ABS_VAL(x) (((x)<0 ? -(x) : (x)))
+    Can produce unexpected results if not done right since macros are textual substitution to source code.
+    Prefer to use language features like const int, or enum
+  
+  #error
+  #warning
 */
