@@ -48,6 +48,9 @@ Caching ang locality
 Callgrind
   Process file to see source annotated with count per line
   callgrind_annotate --auto=yes callgrind.out.<pid>
+    Callgrind is a profiling tool that can count function calls and the CPU instructions executed within each call, 
+    and it can also simulates the L1/L2 caches and counts cache misses/hits. It outputs a file named callgrind.out.[process id]. 
+    Then, one can run callgrind_annotate to display the information in the out file in a meaningful way.
 */
 
 /*
