@@ -1,0 +1,35 @@
+Compile
+# Example of Makefile
+PROGRAMS = example1 example2
+
+all:: $(PROGRAMS)
+
+CC = gcc
+CFLAGS = -g3 -O0 -std=gnu99 -Wall $$warnflags
+export warnflags = -Wfloat-equal -Wtype-limits -Wpointer-arith -Wlogical-op -Wshadow -Winit-self -fno-diagnostics-show-option -fcf-protection=none
+LDFLAGS = 
+LDLIBS =
+
+$(PROGRAMS): %:%.c
+
+clean::
+  rm -f $(PROGRAMS) *.O
+
+.PHONY: clean all
+
+Process
+  A process is an instance of a program in execution
+  Each program in the system runs in the context of some process
+  Key abstractions of processes:
+    independent logical cotroll flow
+    private address space
+  What is a processor/CPU?
+    the engine that interprets or executes instructions stored in main memory
+    ALU (arithmetic logic unit), CU (control unit), memory unit, cache memory, registers
+    
+Memory
+  What is virtual memory?
+    an abstraction of main memory. 
+    - Uses main memory as a cache for the disk
+    - provides each process with a uniform address space
+    - protects the address space of each process from corruption by other processes
