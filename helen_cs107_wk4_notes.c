@@ -73,7 +73,7 @@ int rect_comp_area(const void *r1, const void *r2) {
   int area2 = r2ptr->width * r2ptr->height;
   return area1 - area2;
 }
-void qsort(rec_arr, NUM_RECT, sizeof(rect_arr), rectcmp); 
+void qsort(rec_arr, NUM_RECT, sizeof(struct rect), rectcmp); 
 
 /*
 3. Building a Generic Stack
